@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <a class="btn btn-primary" th:href="@{'/add'}">Add Student</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.studentName}"></td>
+                    <td th:text="${student.studentAddress}"></td>
+                    <td th:text="${student.studentEmail}"></td>
+                    <td><a th:href="@{/edit/{id} (id=${student.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id} (id=${student.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <a class="btn btn-primary" th:href="@{'/add'}">Add Customer</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Street No.</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="customer : ${customers}">
+                    <td th:text="${customer.id}"></td>
+                    <td th:text="${customer.getCustomerName()}"></td>
+                    <td th:text="${customer.addressBook.getCountry()}"></td>
+                    <td th:text="${customer.addressBook.city}"></td>
+                    <td th:text="${customer.addressBook.streetAddress}"></td>
+                    <td th:text="${customer.addressBook.getEmail()}"></td>
+                    <td th:text="${customer.addressBook.phoneNumber}"></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+
+    <!-- <h1>Result</h1>
+    <p th:if="${customer.customerName}" th:text="'name: ' + ${customer.customerName}" /> -->
+
+    <!-- <h1 th:text="${name}"></h1>
+
+    <ul>
+        <li th:each="c : ${colors}" th:text="${c}" th:style="'color:' + ${c} "></li>
+    </ul>
+
+    <ul>
+        <li th:each="customer : ${customers}">
+            <span th:text="${customer.customerName}"></span>
+            <span th:text="${customer.addressBook.streetAddress}"></span>
+        </li>
+    </ul> -->
+</body>
+</html>
